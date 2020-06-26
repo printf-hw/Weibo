@@ -1,0 +1,334 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Mainpage</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            height:2000px;
+        }
+        .top {
+            top:0px;
+            width: 100%;
+            height: 200px;
+            background-color: aqua;
+            position: fixed;
+        }
+        .login {
+            height: 20px;
+            background-color:  aliceblue;
+        }
+        
+        .top-main{
+            height:135px;
+            display:flex;
+        }
+        .top-hot{
+            bottom:0px;
+            height:45px;
+            width:100%;
+            background-color:palegreen;
+            line-height:45px;
+        }
+        .top-hot a{
+            color:white;
+            text-decoration:none;
+        }
+        .top-adiv {
+            height: 45px;
+            float: left;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-weight:bold;
+        }
+        .top-adiv:hover{
+            color: cadetblue;
+            background-color:aquamarine;
+        }
+        .main{
+            width:80%;
+            margin:0px auto;
+            margin-top:220px;
+            height:1000px;
+            background-color:antiquewhite;
+            display:flex;
+        }
+        .main img{
+            height:50px;
+            width:50px;
+        }
+        .main-left {
+            background-color: palevioletred;
+            flex: 2;
+            height: 100%;
+            border-right:1px solid lightgray;
+        }
+        .main-middle {
+            background-color: coral;
+            flex: 5;
+            height: 100%;
+        }
+        .main-right {
+            background-color: deeppink;
+            flex: 2;
+            height: 100%;
+        }
+
+        .main-left-midlle{
+            width:75%;
+            margin:auto;
+            background-color:darkviolet;
+        }
+        .main-left-top{
+            margin-top:20px;
+        }
+        .title {
+            padding: 10px 0px 10px 0px;
+            margin: auto;
+            border-bottom: 1px solid lightgray;
+            color: aliceblue;
+        }
+        .main-left .title {
+            width: 75%;
+        }
+        .userslist{
+            
+            padding:10px;
+            display:flex;
+            justify-content:space-around;
+        }
+        .main-middle .title {
+            width: 90%;
+        }
+        .trends {
+            width: 90%;
+            height:200px;
+            margin: 10px auto;
+            display: flex;
+            border-bottom: 1px solid lightgray;
+            
+        }
+        .trends-user {
+            flex: 1;
+            text-align: center;
+        }
+        .trends-talk{
+            flex:8;
+        }
+
+        .main-right-midlle {
+            width: 75%;
+            margin: auto;
+            background-color: darkviolet;
+        }
+
+        .main-right-top {
+            margin-top: 20px;
+        }
+        .point{
+            padding-top:20px;
+        }
+        .point-line{
+            padding:5px 0px;
+        }
+        .xred{
+            float:left;
+            background-color:orangered;
+            text-align:center;
+            height:20px;
+            width:20px;
+            line-height:20px;
+            font-weight:bold;
+            color:white;
+        }
+        .xgrey {
+            float: left;
+            background-color: lightslategray;
+            text-align: center;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        .bottom{
+            height:30px;
+            line-height:30px;
+            color:white;
+            background-color:dodgerblue;
+            font-weight:bold;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="top"> 
+        <div class="login">
+            <div style="float:right">
+            <a href="#">[注册]</a>
+
+            <a href="#">[登录]</a>
+            </div>
+        </div>
+        <div class="top-main"></div>
+        <div class="top-hot">
+            <h4 style="float:left; color:#333;font-family: 'microsoft yahei',simhei,sans-serif;">正在热议：</h4>
+            <a href="#"><div class="top-adiv">qq密码泄露</div></a>
+            <a href="#"><div class="top-adiv">高考如期举行</div></a>
+            <a href="#"><div class="top-adiv">开学你最想见到的人</div></a>
+        </div>
+        
+    </div>
+
+    <div class="main">
+        <div class="main-left">
+            <div class="main-left-midlle">
+                <div class="main-left-top">
+                    <h4 class="title">这些人正在用微博</h4>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-left-top">
+                    <h4 class="title">新加入的</h4>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                    <div class="userslist">
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                        <div class="users">
+                            <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" height="50" width="50" />
+                            <div class="usersname">用户名</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="main-middle">
+            <h4 class="title">大家都在说</h4>
+            <div class="trends">
+                <div class="trends-user">
+                    <img src="~/Images/main/u=209621737,1953850165&fm=26&gp=0.jpg" />
+                    <div class="usersname">用户名</div>
+                </div>
+                <div class="trends-talk">
+                    <h4>标题</h4>
+                    <div>这是讨论内容</div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="main-right-midlle">
+                <div class="main-right-top">
+                    <h4 class="title" style="text-align:center">关注度<span style="color:darkorange">TOP10</span></h4>
+                    <div class="point">
+                        <div class="point-line">
+                            <div class="xred">1</div> 高校课堂行
+                        </div>
+                        <div class="point-line">
+                            <div class="xred">2</div> 高校课堂行
+                        </div>
+                        <div class="point-line">
+                            <div class="xred">3</div> 高校课堂行
+                        </div>
+                        <div class="point-line">
+                            <div class="xgrey">4</div> 高校课堂行
+                        </div>
+                        <div class="point-line">
+                            <div class="xgrey">5</div> -------
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="bottom">
+            © 2020-2052 Liquid.net
+        </div>
+</body>
+</html>

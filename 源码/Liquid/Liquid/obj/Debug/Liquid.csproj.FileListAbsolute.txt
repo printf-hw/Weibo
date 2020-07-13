@@ -171,3 +171,4 @@ C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.csproj
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.csproj.CopyComplete
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.dll
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.pdb
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.csprojAssemblyReference.cache

@@ -1,0 +1,500 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Fensi</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: #71818c;
+            background-image: url('../../images/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100%;
+            background-color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .top_h50 {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(42, 130, 228, 1);
+            opacity: 0.8;
+        }
+
+        .top_h50_w1200 {
+            width: 1200px;
+            margin: 0px auto;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .top_h50_w1200_right {
+            float: left;
+            height: 50px;
+            font-size: 20px;
+            margin-left: 5px;
+            color: rgba(80, 80, 80, 1);
+        }
+
+        .top_h50_w1200_left {
+            float: right;
+            color: white;
+        }
+
+            .top_h50_w1200_left a {
+                color: white;
+            }
+
+        .search {
+            width: 1200px;
+            height: 60px;
+            margin: auto;
+            margin-top: 80px;
+        }
+
+        .search_left_h50w500 {
+            float: right;
+            height: 50px;
+            width: 500px;
+            border: 2px solid darkblue;
+            border-radius: 15px;
+            background-color: rgba(42, 130, 228, 1);
+            color: white;
+        }
+
+            .search_left_h50w500 span a {
+                color: white;
+            }
+
+        .search_span {
+            float: left;
+            line-height: 50px;
+            margin-left: 10px;
+        }
+
+        .search_span_s {
+            float: left;
+            line-height: 50px;
+            margin-left: 55px;
+        }
+
+        .search_span_t {
+            width: 800px;
+            float: left;
+            line-height: 50px;
+            margin-top: 5px;
+            margin-left: -270px;
+            background-color: lightgray;
+        }
+
+
+        .wenzi1 {
+            float: left;
+            line-height: 50px;
+            margin-left: 50px;
+            margin-top: 20px;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .search_input {
+            float: right;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+
+        .search_text {
+            height: 20px;
+        }
+
+        .search_submit {
+            width: 45px;
+            background-color: rgba(49, 131, 34, 1);
+            color: white;
+            border: 2px solid rgba(13, 136, 67, 1);
+        }
+
+        .search_submit_s {
+            width: 90px;
+            background-color: rgba(49, 131, 34, 1);
+            color: white;
+            border: 2px solid rgba(13, 136, 67, 1);
+            margin-top: 10px;
+            margin-left: 39%;
+        }
+
+        .mainpart_w940 {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mainpart_right_w740 {
+            width: 885px;
+            float: left;
+            background-color: whitesmoke;
+            border-top-left-radius: 30px;
+            border: 3px solid rgba(0, 74, 186, 1);
+        }
+
+        .mainpart_left_w200 {
+            width: 300px;
+            float: right;
+            background-color: rgba(42, 130, 228, 1);
+            border: 3px solid rgba(0, 74, 186, 1);
+            height: 1000px;
+        }
+
+        .mainpart_right_w740_iconbox {
+            width: 660px;
+            margin-left: 20px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .mainpart_right_w740_icon {
+            float: left;
+        }
+
+        .mainpart_right_w740_word {
+            width: 400px;
+            height: 140px;
+            position: relative;
+            left: 10px;
+        }
+
+        .mainpart_right_w740_word1 {
+            width: 800px;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+            margin-top: 30px;
+        }
+
+        .mainpart_right_w740_word2 {
+            color: gray;
+            font-size: 12px;
+            font-weight: 400;
+            margin-left: 300px;
+        }
+
+        .mainpart_right_w740_word3 {
+            color: gray;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        .mainpart_right_w740_word4 {
+            color: Highlight;
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 3px;
+        }
+
+        .mainpart_right_w740_word5 {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            height: 30px;
+            margin-top: 10px;
+        }
+
+        .mainpart_right_w740_word6 {
+            color: lightgray;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .mainpart_right_w740_weibobox {
+            width: 670px;
+            margin: 50px auto;
+        }
+
+        .weibobox_right {
+            margin-top: 5px;
+            float: left;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .weibobox_left {
+            margin-top: 5px;
+            float: right;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .weibobox_line {
+            height: 2px;
+            margin: 10px auto;
+            margin-top: 30px;
+            border-bottom: 1px dashed black;
+        }
+
+        .weibox_empty {
+            height: 40px;
+            width: 500px;
+            margin: auto;
+        }
+
+        .mainpart_left_w200_top {
+            width: 170px;
+            height: 50px;
+            margin: auto;
+            margin-top: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .mainpart_left_w200_top_box1 {
+            float: left;
+            width: 50px;
+            font-size: 15px;
+        }
+
+        .mainpart_left_w200_top_box2 {
+            float: left;
+            width: 50px;
+            font-size: 15px;
+        }
+
+        .Content {
+            float: left;
+        }
+
+        .Guan {
+            float: left;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .Fen {
+            float: left;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .Weibo {
+            float: left;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .box {
+            background-color: cornflowerblue;
+            width: 300px;
+            height: 40px;
+            margin-top: 80px;
+            line-height: 40px;
+        }
+
+        .All {
+            margin-top: 20px;
+        }
+
+        .Care {
+            margin-top: 20px;
+        }
+
+        .Line {
+            margin-top: 18px;
+            border-bottom: 1px dashed lightblue;
+        }
+
+        .Line_s {
+            margin-top: 18px;
+            border-bottom: 1px dashed gray;
+            height: 2px;
+            margin: 0px auto;
+            margin-left: 8%
+        }
+
+        .MyFen {
+            margin-top: 20px;
+        }
+
+        .BlackMenu {
+            margin-top: 10px;
+        }
+
+        .white {
+            width: 100px;
+            height: 20px;
+            background-color: white;
+            border: 1px solid gray;
+        }
+
+        .blue {
+            width: 100px;
+            height: 20px;
+            background-color: lightblue;
+            border: 1px solid darkblue;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--网页顶部栏-->
+    <div class="top_h50">
+        <div class="top_h50_w1200">
+            <div class="top_h50_w1200_right">
+                <img src="~/images/logo.png" alt="Alternate Text" style="height:48px;" />
+
+            </div>
+            <div class="top_h50_w1200_right">Liquid微博</div>
+            <div class="top_h50_w1200_left">
+                <span><a href="#">登录</a></span>
+                <span>|</span>
+                <span><a href="#">注册</a></span>
+            </div>
+        </div>
+    </div>
+    <!--网页搜索栏-->
+    <div class="search">
+        <div class="search_left_h50w500">
+            <div>
+                <div class="search_span">
+                    <span><a href="#">我的首页</a></span>
+                    <span>|</span>
+                    <span><a href="#">我的微博</a></span>
+                    <span>|</span>
+                    <span><a href="#">好友</a></span>
+                    <span>|</span>
+                    <span><a href="#">模板</a></span>
+                </div>
+
+                <input type="text" name="name" value="搜索微博、搜索用户" class="search_text" style="margin-top:13px;margin-left:5px;" />
+                <input type="submit" name="name" value="搜索" class="search_submit" />
+
+            </div>
+        </div>
+    </div>
+    <!--网页主界面-->
+    <div class="mainpart_w940">
+        <!--网页主界面左栏-->
+        <div class="mainpart_right_w740">
+            <!--网页主界面左栏个人信息-->
+            <div>
+                <p class="wenzi1">我关注了X人</p>
+                <input type="text" name="name" value="输入昵称或备注" style="margin-top:35px;margin-left:40%;" />
+                <input type="submit" name="name" value="搜索" class="bt" />
+            </div>
+            <div class="weibobox_line">
+            </div>
+            <!--网页主界面左栏微博信息-->
+            <div>
+                <div class="search_span_s">
+                    <span><a href="#">全部</a></span>
+                    <span>|</span>
+                    <span><a href="#">互相关注</a></span>
+                    <span>|</span>
+                    <span><a href="#">未分组</a></span>
+                    <span>|</span>
+                    <span><a href="#">明星</a></span>
+                    <span>|</span>
+                    <span><a href="#">开发</a></span>
+                    <span>|</span>
+                </div>
+                <input type="submit" name="name" value="+创建分组" class="search_submit_s" />
+            </div>
+            <div class="search_span_t">
+                <span style="color:black;font-weight:bold;">排序方式：</span>
+                <span class="white"><a href="#">关注时间</a></span>
+                <span class="blue"><a href="#">最近更新</a></span>
+                <span class="blue"><a href="#">最近联系</a></span>
+                <span class="blue"><a href="#">粉丝数</a></span>
+            </div>
+            <!--网页主界面右栏个人信息-->
+            <div class="mainpart_right_w740_iconbox">
+                <div class="mainpart_right_w740_icon">
+                    <img src="~/images/Host.png" alt="Alternate Text" style="width:100px;height:100px;margin-left:35px;margin-top:30px;" />
+                </div>
+                <div class="mainpart_right_w740_word">
+                    <p class="mainpart_right_w740_word1">Ervin<span class="mainpart_right_w740_word2">开发▼</span></p>
+                    <p class="mainpart_right_w740_word3">浙江 温州&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粉丝:X人</p>
+                    <p class="mainpart_right_w740_word4">留言(2020-7-14 12:00)</p>
+                </div>
+                <div class="Line_s"></div>
+            </div>
+
+
+            <div class="mainpart_right_w740_weibobox">
+
+            </div>
+
+
+            <div class="weibox_empty"></div>
+        </div>
+        <!--网页主界面右栏-->
+        <div class="mainpart_left_w200">
+            <div class="mainpart_right_w740_iconbox">
+                <div class="mainpart_right_w740_icon">
+                    <img src="~/images/Host.png" alt="Alternate Text" style="width:100px;height:100px;" />
+                </div>
+                <div class="mainpart_right_w740_word">
+                    <p class="mainpart_right_w740_word5">Ervin</p>
+                    <p class="mainpart_right_w740_word6">浙江 温州</p>
+                </div>
+
+            </div>
+            <div class="Content">
+                <div class="Guan">
+                    <p style="font-size:20px;color:black;margin-top:0 auto;">X<br />关注</p>
+
+
+                </div>
+
+                <div class="Fen">
+                    <p style="font-size:20px;color:black;margin-top:0 auto;">X</p>
+                    <p style="font-size:18px;color:black;">粉丝</p>
+                </div>
+
+                <div class="Weibo">
+                    <p style="font-size:20px;color:black;margin-top:0 auto;">X</p>
+                    <p style="font-size:18px;color:black;">微博</p>
+                </div>
+            </div>
+            <div class="box">
+                <p style="color:white;margin-left:30px;font-size:18px;">我的关注</p>
+            </div>
+            <div class="All">
+                <p style="font-size:12px;color:black;margin-left:30px;">> 全部</p>
+            </div>
+            <div class="Care">
+                <p style="font-size:12px;color:darkblue;margin-left:30px;">> 互相关注</p>
+            </div>
+            <div class="Line"></div>
+            <div class="MyFen">
+                <p style="color:lightblue;margin-left:30px;font-size:18px;font-weight:bold;"><a href="#">我的粉丝</a></p>
+            </div>
+            <div class="Line"></div>
+            <div class="BlackMenu">
+                <p style="color:lightblue;margin-left:60%;font-size:12px;font-weight:bold;"><a href="#">管理我的黑名单</a></p>
+            </div>
+            <div class="Line"></div>
+
+            <div class="mainpart_left_w200_middle">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

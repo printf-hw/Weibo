@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,10 +134,50 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainpageController.cs" />
+    <Compile Include="Controllers\PcenterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Command.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Follow.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forward.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Like.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Messsage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -137,13 +185,193 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\._bootstrap-grid.css" />
+    <Content Include="Content\css\._bootstrap-grid.min.css" />
+    <Content Include="Content\css\._bootstrap-reboot.css" />
+    <Content Include="Content\css\._bootstrap-reboot.min.css" />
+    <Content Include="Content\css\._bootstrap.css" />
+    <Content Include="Content\css\._bootstrap.min.css" />
+    <Content Include="Content\css\._msg.css" />
+    <Content Include="Content\css\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\jquery.convform.css" />
+    <Content Include="Content\css\msg.css" />
+    <Content Include="Content\Img\icon\1.jpg" />
+    <Content Include="Content\Img\icon\10.jpg" />
+    <Content Include="Content\Img\icon\2.jpg" />
+    <Content Include="Content\Img\icon\3.jpg" />
+    <Content Include="Content\Img\icon\4.jpg" />
+    <Content Include="Content\Img\icon\5.jpg" />
+    <Content Include="Content\Img\icon\6.jpg" />
+    <Content Include="Content\Img\icon\7.jpg" />
+    <Content Include="Content\Img\icon\8.jpg" />
+    <Content Include="Content\Img\icon\9.gif" />
+    <Content Include="Content\Img\log\1.png" />
+    <Content Include="Content\Img\log\10.jpg" />
+    <Content Include="Content\Img\log\11.jpg" />
+    <Content Include="Content\Img\log\12.jpg" />
+    <Content Include="Content\Img\log\13.jpg" />
+    <Content Include="Content\Img\log\14.jpg" />
+    <Content Include="Content\Img\log\15.jpg" />
+    <Content Include="Content\Img\log\16.jpg" />
+    <Content Include="Content\Img\log\17.jpg" />
+    <Content Include="Content\Img\log\18.jpg" />
+    <Content Include="Content\Img\log\19.jpg" />
+    <Content Include="Content\Img\log\2.jpg" />
+    <Content Include="Content\Img\log\20.jpg" />
+    <Content Include="Content\Img\log\21.jpg" />
+    <Content Include="Content\Img\log\22.jpg" />
+    <Content Include="Content\Img\log\23.jpg" />
+    <Content Include="Content\Img\log\24.jpg" />
+    <Content Include="Content\Img\log\25.jpg" />
+    <Content Include="Content\Img\log\26.jpg" />
+    <Content Include="Content\Img\log\27.jpg" />
+    <Content Include="Content\Img\log\28.jpg" />
+    <Content Include="Content\Img\log\29.jpg" />
+    <Content Include="Content\Img\log\3.jpg" />
+    <Content Include="Content\Img\log\30.jpg" />
+    <Content Include="Content\Img\log\31.jpg" />
+    <Content Include="Content\Img\log\32.jpg" />
+    <Content Include="Content\Img\log\33.jpg" />
+    <Content Include="Content\Img\log\34.jpg" />
+    <Content Include="Content\Img\log\35.jpg" />
+    <Content Include="Content\Img\log\36.jpg" />
+    <Content Include="Content\Img\log\37.jpg" />
+    <Content Include="Content\Img\log\38.jpg" />
+    <Content Include="Content\Img\log\39.jpg" />
+    <Content Include="Content\Img\log\4.jpg" />
+    <Content Include="Content\Img\log\40.jpg" />
+    <Content Include="Content\Img\log\41.jpg" />
+    <Content Include="Content\Img\log\42.png" />
+    <Content Include="Content\Img\log\43.jpg" />
+    <Content Include="Content\Img\log\44.jpg" />
+    <Content Include="Content\Img\log\5.jpg" />
+    <Content Include="Content\Img\log\6.jpg" />
+    <Content Include="Content\Img\log\7.jpg" />
+    <Content Include="Content\Img\log\8.jpg" />
+    <Content Include="Content\Img\log\9.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\correct.png" />
+    <Content Include="Images\credit_cards.png" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\Host.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\main\u=209621737,1953850165&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="Images\paypal.png" />
+    <Content Include="Images\图片 7.png" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\1.png" />
+    <Content Include="img\10.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
+    <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\7.jpg" />
+    <Content Include="img\8.jpg" />
+    <Content Include="img\9.gif" />
+    <Content Include="img\background.jpg" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\correct.png" />
+    <Content Include="img\credit_cards.png" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\Host.png" />
+    <Content Include="img\icon\1.jpg" />
+    <Content Include="img\icon\10.jpg" />
+    <Content Include="img\icon\2.jpg" />
+    <Content Include="img\icon\3.jpg" />
+    <Content Include="img\icon\4.jpg" />
+    <Content Include="img\icon\5.jpg" />
+    <Content Include="img\icon\6.jpg" />
+    <Content Include="img\icon\7.jpg" />
+    <Content Include="img\icon\8.jpg" />
+    <Content Include="img\icon\9.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\log\1.png" />
+    <Content Include="img\log\10.jpg" />
+    <Content Include="img\log\11.jpg" />
+    <Content Include="img\log\12.jpg" />
+    <Content Include="img\log\13.jpg" />
+    <Content Include="img\log\14.jpg" />
+    <Content Include="img\log\15.jpg" />
+    <Content Include="img\log\16.jpg" />
+    <Content Include="img\log\17.jpg" />
+    <Content Include="img\log\18.jpg" />
+    <Content Include="img\log\19.jpg" />
+    <Content Include="img\log\2.jpg" />
+    <Content Include="img\log\20.jpg" />
+    <Content Include="img\log\21.jpg" />
+    <Content Include="img\log\22.jpg" />
+    <Content Include="img\log\23.jpg" />
+    <Content Include="img\log\24.jpg" />
+    <Content Include="img\log\25.jpg" />
+    <Content Include="img\log\26.jpg" />
+    <Content Include="img\log\27.jpg" />
+    <Content Include="img\log\28.jpg" />
+    <Content Include="img\log\29.jpg" />
+    <Content Include="img\log\3.jpg" />
+    <Content Include="img\log\30.jpg" />
+    <Content Include="img\log\31.jpg" />
+    <Content Include="img\log\32.jpg" />
+    <Content Include="img\log\33.jpg" />
+    <Content Include="img\log\34.jpg" />
+    <Content Include="img\log\35.jpg" />
+    <Content Include="img\log\36.jpg" />
+    <Content Include="img\log\37.jpg" />
+    <Content Include="img\log\38.jpg" />
+    <Content Include="img\log\39.jpg" />
+    <Content Include="img\log\4.jpg" />
+    <Content Include="img\log\40.jpg" />
+    <Content Include="img\log\41.jpg" />
+    <Content Include="img\log\42.png" />
+    <Content Include="img\log\43.jpg" />
+    <Content Include="img\log\44.jpg" />
+    <Content Include="img\log\5.jpg" />
+    <Content Include="img\log\6.jpg" />
+    <Content Include="img\log\7.jpg" />
+    <Content Include="img\log\8.jpg" />
+    <Content Include="img\log\9.jpg" />
+    <Content Include="img\paypal.png" />
+    <Content Include="img\图片 7.png" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\css\._bootstrap-grid.css.map" />
+    <Content Include="Content\css\._bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\._bootstrap-reboot.css.map" />
+    <Content Include="Content\css\._bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\._bootstrap.css.map" />
+    <Content Include="Content\css\._bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -167,10 +395,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_MainpageLayout.cshtml" />
     <Content Include="Views\Mainpage\Mainpage.cshtml" />
+    <Content Include="Views\Chat\ChatIndex.cshtml" />
+    <Content Include="Views\Pcenter\Index.cshtml" />
+    <Content Include="Views\Login\Fensi.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -184,6 +415,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

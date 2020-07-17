@@ -172,3 +172,8 @@ C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.csproj
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.dll
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.pdb
 C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\obj\Debug\Liquid.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\bin\EntityFramework.dll
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\bin\EntityFramework.SqlServer.dll
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\bin\EntityFramework.xml
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\bin\EntityFramework.SqlServer.xml
+C:\Users\lenovo\Desktop\weibo\Weibo\源码\Liquid\Liquid\bin\zh-Hans\EntityFramework.resources.dll

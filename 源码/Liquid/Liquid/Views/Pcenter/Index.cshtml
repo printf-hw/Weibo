@@ -1,0 +1,324 @@
+﻿@{
+    Layout = null;
+}
+@using Liquid.Models
+@model ViewTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-image: url(../../img/background.jpg);
+            background-repeat: repeat-y;
+            background-position: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .top_h50 {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(42, 130, 228, 1);
+            opacity: 0.8;
+        }
+
+        .top_h50_w1200 {
+            width: 1200px;
+            margin: 0px auto;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .top_h50_w1200_right {
+            float: left;
+            height: 50px;
+            font-size: 20px;
+            margin-left: 5px;
+            color: rgba(80, 80, 80, 1);
+        }
+
+        .top_h50_w1200_left {
+            float: right;
+            color: white;
+        }
+
+            .top_h50_w1200_left a {
+                color: white;
+            }
+
+        .search {
+            width: 1200px;
+            height: 60px;
+            margin: auto;
+            margin-top: 80px;
+        }
+
+        .search_left_h50w500 {
+            float: right;
+            height: 50px;
+            width: 500px;
+            border: 2px solid darkblue;
+            border-radius: 15px;
+            background-color: rgba(42, 130, 228, 1);
+            color: white;
+        }
+
+            .search_left_h50w500 span a {
+                color: white;
+            }
+
+        .search_span {
+            float: left;
+            line-height: 50px;
+            margin-left: 10px;
+        }
+
+        .search_input {
+            float: right;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+
+        .search_text {
+            height: 20px;
+        }
+
+        .search_submit {
+            width: 45px;
+            background-color: rgba(49, 131, 34, 1);
+            color: white;
+            border: 2px solid rgba(13, 136, 67, 1);
+        }
+
+        .mainpart_w940 {
+            width: 955px;
+            margin: 0 auto;
+        }
+
+        .mainpart_right_w740 {
+            width: 740px;
+            float: left;
+            background-color: rgba(42, 130, 228, 0.8);
+            border-top-left-radius: 50px;
+            border: 3px solid rgba(0, 74, 186, 1);
+        }
+
+        .mainpart_left_w200 {
+            width: 200px;
+            float: right;
+            background-color: rgba(42, 130, 228, 1);
+            border: 3px solid rgba(0, 74, 186, 1);
+            height: 600px;
+        }
+
+        .mainpart_right_w740_iconbox {
+            width: 660px;
+            height: 150px;
+            margin-left: 40px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .mainpart_right_w740_icon {
+            float: left;
+        }
+
+        .mainpart_right_w740_word {
+            width: 400px;
+            height: 140px;
+            position: relative;
+            left: 10px;
+        }
+
+        .mainpart_right_w740_word1 {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            height: 30px;
+        }
+
+        .mainpart_right_w740_word2 {
+            color: white;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .mainpart_right_w740_word3 {
+            color: black;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .mainpart_right_w740_word4 {
+            color: gray;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .mainpart_right_w740_weibobox {
+            width: 670px;
+            margin: 50px auto;
+        }
+
+        .weibobox_right {
+            margin-top: 5px;
+            float: left;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .weibobox_left {
+            margin-top: 5px;
+            float: right;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .weibobox_line {
+            width: 670px;
+            height: 2px;
+            margin: 0px auto;
+            border-bottom: 2px solid white;
+        }
+
+        .weibox_empty {
+            height: 40px;
+            width: 500px;
+            margin: auto;
+        }
+
+        .mainpart_left_w200_top {
+            width: 170px;
+            height: 50px;
+            margin: auto;
+            margin-top: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        .mainpart_left_w200_top_box1 {
+            float: left;
+            width: 50px;
+            font-size: 15px;
+        }
+
+        .mainpart_left_w200_top_box2 {
+            float: left;
+            width: 50px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!--网页顶部栏-->
+    <div class="top_h50">
+        <div class="top_h50_w1200">
+            <div class="top_h50_w1200_right">
+                <img src="~/img/logo.png" alt="Alternate Text" style="height:48px;" />
+
+            </div>
+            <div class="top_h50_w1200_right">Liquid微博</div>
+            <div class="top_h50_w1200_left">
+                <span><a href="#">登录</a></span>
+                <span>|</span>
+                <span><a href="#">注册</a></span>
+            </div>
+        </div>
+    </div>
+    <!--网页搜索栏-->
+    <div class="search">
+        <div class="search_left_h50w500">
+            <div>
+                <div class="search_span">
+                    <span><a href="#">我的首页</a></span>
+                    <span>|</span>
+                    <span><a href="#">我的微博</a></span>
+                    <span>|</span>
+                    <span><a href="#">好友</a></span>
+                    <span>|</span>
+                    <span><a href="#">模板</a></span>
+                </div>
+                <div class="search_input">
+                    <input type="text" name="name" value="搜索微博、搜索用户" class="search_text" />
+                    <input type="submit" name="name" value="搜索" class="search_submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--网页主界面-->
+    <div class="mainpart_w940">
+        <!--网页主界面右栏-->
+        <div class="mainpart_right_w740">
+            <!--网页主界面右栏个人信息-->
+            <div class="mainpart_right_w740_iconbox">
+                @foreach (var item in Model.Userss)
+                {
+                    <div class="mainpart_right_w740_icon">
+                        <img src="~/img/icon/@item.Icon" alt="出了未知错误无法显示" style="width:150px;height:150px;" />
+                    </div>
+                    <div class="mainpart_right_w740_word">
+                        <p class="mainpart_right_w740_word1">@item.UserNname</p>
+                        <p class="mainpart_right_w740_word2">@item.Email</p>
+                        <p class="mainpart_right_w740_word3">@item.address</p>
+                        <p class="mainpart_right_w740_word4">@item.UserInfo</p>
+                    </div>
+                }
+            </div>
+            <!--网页主界面右栏微博信息-->
+            @foreach (var item in Model.Logss)
+            {
+                <div class="mainpart_right_w740_weibobox">
+                    <p><span>我</span>:<span>@item.LogInfo</span></p>
+                    <p class="weibobox-mid">
+                        <img src="~/img/log/@item.LogPic" alt="无法显示" style="width:50%;" />
+                    </p>
+                    <p>
+                        <span class="weibobox_right">
+                            2020-10-09 10:09 来自XX微博
+                        </span>
+                        <span class="weibobox_left">
+                            <a href="#">转发(@Model.Forwardss.Where(a => a.LogID == item.LogID).Count())</a>
+                            <span>|</span>
+                            <a href="#">点赞(@Model.Likess.Where(a => a.LogID == item.LogID).Count())</a>
+                            <span>|</span>
+                            <a href="#">评论(@Model.Commandss.Where(a => a.LogID == item.LogID).Count())</a>
+                        </span>
+                    </p>
+                </div>
+                <div class="weibobox_line"></div>
+            }
+
+            <div class="weibox_empty"></div>
+        </div>
+        <!--网页主界面左栏-->
+        <div class="mainpart_left_w200">
+            <div class="mainpart_left_w200_top">
+                <div class="mainpart_left_w200_top_box1">
+                    <p>@ViewBag.GZ</p>
+                    <p>关注</p>
+                </div>
+                <div class="mainpart_left_w200_top_box1">
+                    <p>@ViewBag.FS</p>
+                    <p>粉丝</p>
+                </div>
+                <div class="mainpart_left_w200_top_box2">
+                    <p>@ViewBag.WB</p>
+                    <p>微博</p>
+                </div>
+            </div>
+            <div class="mainpart_left_w200_middle">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

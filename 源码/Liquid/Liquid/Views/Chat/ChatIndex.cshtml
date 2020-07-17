@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Liquid.Models.User
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>私信</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/msg.css" />
+
+    <script>
+        var sendid;
+        function send() {
+            
+            var time = new Date();
+            time = time.toLocaleString('chinese', { hour12: false })
+            var msg = $("#msg").val()
+            
+            $.ajax({
+                url: "/Chat/Send",
+                type: "post",
+                data: { "uid": $(".content").attr("id"), "sendid": $(".msg1").attr("id"), "msgInfo": msg, "msgtime": time.toLocaleString('zh') },
+                success: function (data) {
+                    if (data == "1") {
+                        var unit = '<li class="unit col-6 msg-right"><small>' + time + '</small><div class="unit-msg">' + msg + '</div></li>'
+
+                        $(".list-unstyled").append(unit)
+                    }
+                    }
+                    
+
+
+            })
+
+
+        }
+        function Showmsg(obj) {
+            sendid = $(obj).attr("id");
+            $(".msg1").attr("id",sendid)
+            $.ajax({
+                url: "/Chat/Show",
+                type: "post",
+
+                data: { "uid": $(".content").attr("id"), "sendid": $(obj).attr("id") },
+                dataType: 'json',
+                success: function (data) {
+                    $("#msgul").children().remove()
+                    $("#sendbtn").removeAttr('disabled')
+                    $("#titlename").text($(obj).text())
+                    $.each($.parseJSON(data), function (n, item) {
+                        if (item.UserID == $(".content").attr("id")) {
+                            var unit = '<li class="unit col-6 msg-right"><small>' + item.MessgaeTime + '</small><div class="unit-msg">' + item.MessageInfo + '</div></li>'
+
+                            $(".list-unstyled").append(unit)
+                        }
+                        else {
+                            var unit = '<li class="unit col-6 msg-left"><small>' + item.MessgaeTime + '</small><div class="unit-msg">' + item.MessageInfo + '</div></li>'
+
+                            $(".list-unstyled").append(unit)
+                        }
+
+                    })
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="content" id="@Model.UserID">
+        <div class="left">
+            <div class="left-top">
+                <div class="icon">
+                    <img src="~/Content/Img/icon/@Model.Icon" height="50" width="50" />
+                </div>
+                <div class="uname">
+                    @Model.UserNname
+                </div>
+            </div>
+            <div class="input-group col-md-3">
+                
+                    <input type="text" name="uname" id="uname" placeholder="查找联系人" />
+                
+            </div>
+            <div class="left_userlist pre-scrollable">
+                <ul class="list-group">
+                    
+                    @foreach (var item in ViewBag.userlist)
+                    {
+
+                        <li class="list-group-item bg-dark" id="@item.UserID" onclick="Showmsg(this)">
+                            <div class="icon"><img src="~/Content/Img/icon/@item.Icon" height="50" width="50" /></div>
+                            <div class="uname">@item.UserNname</div>
+                        </li>
+
+                    }
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-top text-center font-weight-bold" id="titlename">请选择一名联系人</div>
+            <div class="hidden">
+
+                <div class="right-content pre-scrollable">
+                    <ul id="msgul" class="list-unstyled">
+                        
+                    </ul>
+                    
+
+
+
+                </div>
+                <div class="msg1">
+                    
+                        <textarea placeholder="说点什么吧" class="msg" id="msg" name="msg" rows="10"></textarea>
+
+                        <button type="button" id="sendbtn" class="btn btn-dark btn-block" role="button" disabled="disable">发送</button>
+                    
+                    <script>
+                        $(".btn").click(send)
+                    </script>
+                </div>
+
+
+
+            </div>
+        </div>
+        </div>
+</body>
+</html>

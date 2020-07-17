@@ -1,0 +1,126 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.content,.left,.right{
+	border-radius: 10px;
+}
+body{
+	text-align: center;
+	list-style: none;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+}
+.content{
+	display: flex;
+	width: 60%;
+	height: 90%;
+	
+	border: 1px solid black;
+	margin: 0 auto;
+	
+}
+
+.left{
+	background-color: rgb(40,44,53);
+	flex: 1;
+	height: auto;
+	
+}
+.right{
+	background-color: rgb(238,238,238);
+	flex:3;
+	display: flex;
+	flex-flow: column;
+}
+.left-top{
+	padding: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
+.icon{
+	background-color: red;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	flex: 1;
+    overflow:hidden;
+}
+    .icon img {
+        width:100%;
+        height:100%;
+
+    }
+
+.uname{
+	color: white;
+	font-weight: 500;
+	flex: 3;
+	margin: 5px;
+}
+.left_search{
+	background-color: rgb(51,53,58);
+}
+.right{
+	display: flex;
+}
+.hidden{
+	flex: 10;
+	display: flex;
+	flex-direction: column;
+}
+
+.right-top{
+	flex: 1;
+	height: 60px;
+	
+}
+.right-content{
+	flex: 1;
+}
+.msg{
+	flex: 1;
+	width: 100%;
+}
+.conv-form-wrapper{
+	flex: 5;
+}
+.list-group-item{
+	display: flex !important;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	
+}
+list-group-item:hover {
+    background-color: black;
+}
+
+.input-group{
+	margin: 10px;
+}
+.unit{
+	
+	margin:5px;
+	
+}
+.unit-msg{
+	height: auto;
+	
+	max-width: 200px;
+	border-radius: 20px;
+	border-radius: calc();
+	background-color: rgb(33,37,43);
+	color: white;
+}
+.msg-left{
+	float: left;
+}
+.msg-right{
+	float: right;
+}

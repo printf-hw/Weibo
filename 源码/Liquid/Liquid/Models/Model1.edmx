@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LiquidModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="CommandID" />
+          </Key>
+          <Property Name="CommandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogID" Type="int" />
+          <Property Name="CommandInfo" Type="nvarchar" MaxLength="80" />
+          <Property Name="CommandTime" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Follow">
+          <Key>
+            <PropertyRef Name="FollowID" />
+          </Key>
+          <Property Name="FollowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FollowUID" Type="int" />
+        </EntityType>
+        <EntityType Name="Forward">
+          <Key>
+            <PropertyRef Name="ForwardID" />
+          </Key>
+          <Property Name="ForwardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="LogID" Type="int" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="LikeID" />
+          </Key>
+          <Property Name="LikeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="LogID" Type="int" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="UserID" Type="int" />
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogInfo" Type="nvarchar" MaxLength="80" />
+          <Property Name="LogPic" Type="varchar" MaxLength="20" />
+          <Property Name="Vlog" Type="varchar" MaxLength="20" />
+          <Property Name="Command" Type="nvarchar" MaxLength="80" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="20" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Messsage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="SendID" Type="int" />
+          <Property Name="MessageInfo" Type="nvarchar" MaxLength="80" />
+          <Property Name="MessgaeTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserNname" Type="nvarchar" MaxLength="20" />
+          <Property Name="address" Type="nvarchar" MaxLength="40" />
+          <Property Name="UserInfo" Type="nvarchar" MaxLength="80" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="Pwd" Type="varchar" MaxLength="20" />
+          <Property Name="Icon" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_COMMAND_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMAND_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FOLLOW_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="FollowUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FOLLOW_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORWARD_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Forward" Type="Self.Forward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Forward">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORWARD_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Forward" Type="Self.Forward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Forward">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSSAGE_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LiquidModelStoreContainer">
+          <EntitySet Name="Command" EntityType="Self.Command" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Follow" EntityType="Self.Follow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forward" EntityType="Self.Forward" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messsage" EntityType="Self.Messsage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_COMMAND_REFERENCE_LOG" Association="Self.FK_COMMAND_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMAND_REFERENCE_USER" Association="Self.FK_COMMAND_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FOLLOW_REFERENCE_LOG" Association="Self.FK_FOLLOW_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FOLLOW_REFERENCE_USER" Association="Self.FK_FOLLOW_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORWARD_REFERENCE_LOG" Association="Self.FK_FORWARD_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Forward" EntitySet="Forward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORWARD_REFERENCE_USER" Association="Self.FK_FORWARD_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Forward" EntitySet="Forward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_REFERENCE_LOG" Association="Self.FK_LIKE_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Like" EntitySet="Like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_REFERENCE_USER" Association="Self.FK_LIKE_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Like" EntitySet="Like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSSAGE_REFERENCE_USER" Association="Self.FK_MESSSAGE_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Messsage" EntitySet="Messsage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LiquidModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Command">
+          <Key>
+            <PropertyRef Name="CommandID" />
+          </Key>
+          <Property Name="CommandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogID" Type="Int32" />
+          <Property Name="CommandInfo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CommandTime" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Log" Relationship="Self.FK_COMMAND_REFERENCE_LOG" FromRole="Command" ToRole="Log" />
+          <NavigationProperty Name="User" Relationship="Self.FK_COMMAND_REFERENCE_USER" FromRole="Command" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Follow">
+          <Key>
+            <PropertyRef Name="FollowID" />
+          </Key>
+          <Property Name="FollowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="FollowUID" Type="Int32" />
+          <NavigationProperty Name="Log" Relationship="Self.FK_FOLLOW_REFERENCE_LOG" FromRole="Follow" ToRole="Log" />
+          <NavigationProperty Name="User" Relationship="Self.FK_FOLLOW_REFERENCE_USER" FromRole="Follow" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Forward">
+          <Key>
+            <PropertyRef Name="ForwardID" />
+          </Key>
+          <Property Name="ForwardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="LogID" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Log" Relationship="Self.FK_FORWARD_REFERENCE_LOG" FromRole="Forward" ToRole="Log" />
+          <NavigationProperty Name="User" Relationship="Self.FK_FORWARD_REFERENCE_USER" FromRole="Forward" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="LikeID" />
+          </Key>
+          <Property Name="LikeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="LogID" Type="Int32" />
+          <NavigationProperty Name="Log" Relationship="Self.FK_LIKE_REFERENCE_LOG" FromRole="Like" ToRole="Log" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LIKE_REFERENCE_USER" FromRole="Like" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogInfo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="LogPic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Vlog" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Command" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Command1" Relationship="Self.FK_COMMAND_REFERENCE_LOG" FromRole="Log" ToRole="Command" />
+          <NavigationProperty Name="Follow" Relationship="Self.FK_FOLLOW_REFERENCE_LOG" FromRole="Log" ToRole="Follow" />
+          <NavigationProperty Name="Forward" Relationship="Self.FK_FORWARD_REFERENCE_LOG" FromRole="Log" ToRole="Forward" />
+          <NavigationProperty Name="Like" Relationship="Self.FK_LIKE_REFERENCE_LOG" FromRole="Log" ToRole="Like" />
+        </EntityType>
+        <EntityType Name="Messsage">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="SendID" Type="Int32" />
+          <Property Name="MessageInfo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="MessgaeTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK_MESSSAGE_REFERENCE_USER" FromRole="Messsage" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserNname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UserInfo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Command" Relationship="Self.FK_COMMAND_REFERENCE_USER" FromRole="User" ToRole="Command" />
+          <NavigationProperty Name="Follow" Relationship="Self.FK_FOLLOW_REFERENCE_USER" FromRole="User" ToRole="Follow" />
+          <NavigationProperty Name="Forward" Relationship="Self.FK_FORWARD_REFERENCE_USER" FromRole="User" ToRole="Forward" />
+          <NavigationProperty Name="Like" Relationship="Self.FK_LIKE_REFERENCE_USER" FromRole="User" ToRole="Like" />
+          <NavigationProperty Name="Messsage" Relationship="Self.FK_MESSSAGE_REFERENCE_USER" FromRole="User" ToRole="Messsage" />
+        </EntityType>
+        <Association Name="FK_COMMAND_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMAND_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Command" Type="Self.Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Command">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FOLLOW_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="FollowUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FOLLOW_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Follow" Type="Self.Follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Follow">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORWARD_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Forward" Type="Self.Forward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Forward">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORWARD_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Forward" Type="Self.Forward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Forward">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_REFERENCE_LOG">
+          <End Role="Log" Type="Self.Log" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="LogID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="LogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Like" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSSAGE_REFERENCE_USER">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LiquidEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Command" EntityType="Self.Command" />
+          <EntitySet Name="Follow" EntityType="Self.Follow" />
+          <EntitySet Name="Forward" EntityType="Self.Forward" />
+          <EntitySet Name="Like" EntityType="Self.Like" />
+          <EntitySet Name="Log" EntityType="Self.Log" />
+          <EntitySet Name="Messsage" EntityType="Self.Messsage" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_COMMAND_REFERENCE_LOG" Association="Self.FK_COMMAND_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMAND_REFERENCE_USER" Association="Self.FK_COMMAND_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Command" EntitySet="Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FOLLOW_REFERENCE_LOG" Association="Self.FK_FOLLOW_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FOLLOW_REFERENCE_USER" Association="Self.FK_FOLLOW_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Follow" EntitySet="Follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORWARD_REFERENCE_LOG" Association="Self.FK_FORWARD_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Forward" EntitySet="Forward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORWARD_REFERENCE_USER" Association="Self.FK_FORWARD_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Forward" EntitySet="Forward" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_REFERENCE_LOG" Association="Self.FK_LIKE_REFERENCE_LOG">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Like" EntitySet="Like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_REFERENCE_USER" Association="Self.FK_LIKE_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Like" EntitySet="Like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSSAGE_REFERENCE_USER" Association="Self.FK_MESSSAGE_REFERENCE_USER">
+            <End Role="User" EntitySet="User" />
+            <End Role="Messsage" EntitySet="Messsage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LiquidModelStoreContainer" CdmEntityContainer="LiquidEntities">
+          <EntitySetMapping Name="Command">
+            <EntityTypeMapping TypeName="LiquidModel.Command">
+              <MappingFragment StoreEntitySet="Command">
+                <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="CommandInfo" ColumnName="CommandInfo" />
+                <ScalarProperty Name="CommandTime" ColumnName="CommandTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Follow">
+            <EntityTypeMapping TypeName="LiquidModel.Follow">
+              <MappingFragment StoreEntitySet="Follow">
+                <ScalarProperty Name="FollowID" ColumnName="FollowID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FollowUID" ColumnName="FollowUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forward">
+            <EntityTypeMapping TypeName="LiquidModel.Forward">
+              <MappingFragment StoreEntitySet="Forward">
+                <ScalarProperty Name="ForwardID" ColumnName="ForwardID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Like">
+            <EntityTypeMapping TypeName="LiquidModel.Like">
+              <MappingFragment StoreEntitySet="Like">
+                <ScalarProperty Name="LikeID" ColumnName="LikeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="LiquidModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="LogInfo" ColumnName="LogInfo" />
+                <ScalarProperty Name="LogPic" ColumnName="LogPic" />
+                <ScalarProperty Name="Vlog" ColumnName="Vlog" />
+                <ScalarProperty Name="Command" ColumnName="Command" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messsage">
+            <EntityTypeMapping TypeName="LiquidModel.Messsage">
+              <MappingFragment StoreEntitySet="Messsage">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SendID" ColumnName="SendID" />
+                <ScalarProperty Name="MessageInfo" ColumnName="MessageInfo" />
+                <ScalarProperty Name="MessgaeTime" ColumnName="MessgaeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="LiquidModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserNname" ColumnName="UserNname" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="UserInfo" ColumnName="UserInfo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

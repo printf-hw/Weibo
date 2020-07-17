@@ -1,0 +1,275 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>登录页面</title>
+    <!-- GOOGLE FONTS (POPPINS) -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- BOOTSTRAP 4 -->
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <!-- PAGE STYLE -->
+    <link rel="stylesheet" href="~/Content/pagestyle.css" type="text/css" />
+    <!-- FORM STYLE -->
+    <link rel="stylesheet" href="~/Content/formstyle.css" type="text/css" />
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: #71818c;
+            background-image: url('../../images/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100%;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <main id="wrapper">
+
+        <!-- START MENU -->
+
+        <header>
+            <div class="container">
+                <div class="col-md-12 round-header">
+
+                    <div class="round-line">
+                        <div class="cont" style="position:relative;top:50%; ">
+                            <img src="~/images/图片 7.png" alt="" style="border-radius:10px" />
+                            <div style="position:absolute;left:170px;top:60px; color:red;font-weight:bold;font-size:30px;">登录页面</div>
+                            <div style="position:absolute;height:100px;z-index:2;left:50px;top:200px;">
+                                <div>
+                                    <ul>
+                                        <li class="inactive-step" style="width:80px;height:40px;background-color:dodgerblue;border-radius:15px;"> <a class="nav-link" href="#" data-toggle="app" data-target="#LogInApp">登录</a> </li>
+                                        <li class="inactive-step" style="width:80px;height:40px;background-color:dodgerblue;border-radius:15px;"> <a class="nav-link" href="#" data-toggle="app" data-target="#RegisterApp">注册</a> </li>
+                                        @*<li class="inactive-step"> <a class="nav-link" href="#" data-toggle="app" data-target="#ForgotApp">忘记密码</a> </li>*@
+                                        <li class="inactive-step" style="width:80px;height:40px;background-color:dodgerblue;border-radius:15px;"> <a class="nav-link" href="#" data-toggle="app" data-target="#ResetApp">重置</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- END MENU -->
+        <!-- START FORMS -->
+        <div class="container">
+            <article class="col-md-12">
+                <!-- START LOGIN -->
+                <div class="row">
+                    <div class="col-sm-4 col-md-offset-4">
+                        <div class="app fade" id="LogInApp" tabindex="-1" role="dialog" aria-labelledby="appLabel" aria-hidden="true">
+                            <div class="app-dialog">
+                                <div class="app-content">
+                                    <div class="app-header">
+                                        <button type="button" class="close" data-dismiss="app"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                        <h1>登录</h1>
+                                    </div>
+                                    <div class="app-body">
+                                        <form>
+                                            <!-- Username -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>用户名：</label>
+                                                    <input type="text" required />
+                                                </div>
+                                            </div>
+                                            <!-- Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>密码：</label>
+                                                    <input type="password" required />
+                                                </div>
+                                            </div>
+                                            <!-- Checkbox -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="app-remember">
+                                                        <input type="checkbox" /> 记住我
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- LogIn Button -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="app-button">会员登录</button>
+                                                </div>
+                                            </div>
+                                            <p class="app-register"><a href="#" data-toggle="app" data-target="#ForgotApp" data-dismiss="app">忘记密码?</a></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END LOGIN -->
+                <!-- START REGISTER -->
+                <div class="row">
+                    <div class="col-sm-4 col-md-offset-4">
+                        <div class="app fade" id="RegisterApp" tabindex="-1" role="dialog" aria-labelledby="appLabel" aria-hidden="true">
+                            <div class="app-dialog">
+                                <div class="app-content">
+                                    <!-- Title -->
+                                    <div class="app-header">
+                                        <button type="button" class="close" data-dismiss="app"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        <h1>注册</h1>
+                                    </div>
+                                    <div class="app-body">
+                                        <form class="panel">
+                                            <!--  Username -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>用户名：</label>
+                                                    <input type="text" />
+                                                </div>
+                                            </div>
+                                            <!-- E-mail Address -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>邮箱：</label>
+                                                    <input type="email" required />
+                                                </div>
+                                            </div>
+                                            <!-- Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>密码：</label>
+                                                    <input type="password" />
+                                                </div>
+                                            </div>
+                                            <!-- Re-Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>确认密码：</label>
+                                                    <input type="password" />
+                                                </div>
+                                            </div>
+                                            <!-- Register Button -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="app-button">创建用户</button>
+                                                </div>
+                                            </div>
+                                            <p class="app-register">已有账户?<a href="#" data-toggle="app" data-target="#LogInApp" data-dismiss="app">登录!</a></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END REGISTER -->
+                <!-- START FORGOT -->
+                <div class="row">
+                    <div class="col-sm-4 col-md-offset-4">
+                        <div class="app fade" id="ForgotApp" tabindex="-1" role="dialog" aria-labelledby="appLabel" aria-hidden="true">
+                            <div class="app-dialog">
+                                <div class="app-content">
+                                    <div class="app-header">
+                                        <button type="button" class="close" data-dismiss="app"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        <h1>找回密码</h1>
+                                        <p>重置您的密码，请在下面输入您的电子邮件地址，重置链接将很快通过电子邮件发送给您.</p>
+                                    </div>
+                                    <div class="app-body">
+                                        <form class="panel">
+                                            <!-- E-mail Address -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>邮箱地址：</label>
+                                                    <input type="email" required />
+                                                </div>
+                                            </div>
+                                            <!-- Forgot Button -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="app-button">找回密码</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END FORGOT -->
+                <!-- START RESET -->
+                <div class="row">
+                    <div class="col-sm-4 col-md-offset-4">
+                        <div class="app fade" id="ResetApp" tabindex="-1" role="dialog" aria-labelledby="appLabel" aria-hidden="true">
+                            <div class="app-dialog">
+                                <div class="app-content">
+                                    <div class="app-header">
+                                        <button type="button" class="close" data-dismiss="app"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        <h1>重置密码</h1>
+                                    </div>
+                                    <div class="app-body">
+                                        <form class="panel">
+                                            <!-- Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>原密码：</label>
+                                                    <input type="password" required />
+                                                </div>
+                                            </div>
+                                            <!-- New Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>新密码：</label>
+                                                    <input type="password" required />
+                                                </div>
+                                            </div>
+                                            <!-- Confirm New Password -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>确认密码：</label>
+                                                    <input type="text" required />
+                                                </div>
+                                            </div>
+                                            <!-- Reset Button -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="app-button">重置密码</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END RESET -->
+            </article>
+            <div class="clearfix"></div>
+        </div>
+        <!-- END FORMS -->
+    </main>
+
+    <!-- JQuery -->
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <!-- Form Script -->
+    <script src="~/Scripts/formscript.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Scripts/bootstrap.js"></script>
+
+</body>
+
+</html>
